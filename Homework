@@ -1,0 +1,49 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+void randArray(int [], const int);
+
+int main()
+{
+	int c[25];
+	randArray(c, 25);
+
+	system("pause");
+	return 0;
+}
+
+void randArray(int b[], const int arraySize)
+{
+	//Random array values
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < arraySize; i++)
+		b[i] = rand() % 100;
+	
+	// Array sorting
+	for (int counter = 0; counter < arraySize - 1; counter++)
+		for (int j = 0; j < arraySize - 1; j++)
+			if (b[j] > b[j+1])
+			{
+				int holder = b[j];	
+				b[j] = b[j+1];
+				b[j+1] = holder;
+			}
+
+	for (int k = 0; k < arraySize; k++)
+		cout << "b[" << k << "] = " << b[k] << endl; 
+	
+	// array with max value
+	int max;
+	
+	for (int z = 0; z < arraySize - 1; z++)
+	{
+		
+		if (b[z] > b[z+1])
+			max = b[z];
+		else 
+			max = b[z+1];
+	}
+	cout << "The max value is: " << max << endl;
+}
