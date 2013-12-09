@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	const int arraySize = 10;
+	int a[arraySize] = {2, 6, 4, 8, 10, 12, 89, 68, 45, 37};
+	int hold;
+
+	cout << "The data elements in the original order" <<endl;
+
+	for (int i = 0; i < arraySize; i++)
+		cout << setw(4) << a[i];
+
+	for (int pass = 1; pass < arraySize; pass++)
+		for (int i = 0; i < arraySize-1; i++)
+			if (a[i] > a[i+1])
+			{
+				hold = a[i];
+				a[i] = a[i+1];
+				a[i+1] = hold;
+			}
+
+	cout << endl << "The data elemnts in the ascending order"
+		<< endl;
+
+	for (int i = 0; i < arraySize; i++)
+		cout << setw(4) << a[i];
+
+	cout << endl;
+
+	system("pause");
+	return 0;
+}
