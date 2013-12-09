@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+unsigned long fibonachi(unsigned long);
+
+int main()
+{
+	unsigned long result, number;
+
+	cout << "Enter the number: ";
+	cin >> number;
+	result = fibonachi(number);
+	cout << "Number of Fibonachi(" << number << ") = " << result <<endl;
+
+	system("pause");
+	return 0;
+}
+
+unsigned long fibonachi(unsigned long n)
+{
+	if (n == 0 || n == 1)
+		return n;
+	else 
+		return fibonachi(n-1) + fibonachi(n-2);
+}
